@@ -3,8 +3,13 @@ const fs = require("fs");
 const helmet = require("helmet");
 const https = require("https");
 const path = require("path");
+require("dotenv").config();
 
 const app = express();
+const config = {
+  CLIENT_ID: process.env.CLIENT_ID,
+  CLIENT_SECRET: process.env.CLIENT_SECRET,
+};
 app.use(helmet());
 
 function checkLoggedIn(req, res, next) {
